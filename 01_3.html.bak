@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+    @media all and (min-width: 320px){
+	  body{
+	    background: #e65d5d;
+	  }
+	}
+	@media all and (min-width: 768px){
+	  body{
+	    background: #6fc0d1;
+	  }
+	}
+	@media all and (min-width: 960px){
+	  body{
+	    background: #6fc01d1;
+	  }
+	}
+  </style>
+ </head>
+ <body>
+  
+ </body>
+</html>
