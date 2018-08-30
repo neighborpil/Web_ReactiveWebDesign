@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "PHPWebProject1", "..\..\..\..\..\Codes\GitRepository\Web_ReactiveWebDesign\PHPTest\PHPWebProject1\PHPWebProject1\PHPWebProject1.phpproj", "{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AC13E97-723A-405E-832A-473DE4C46306}
+	EndGlobalSection
+EndGlobal
