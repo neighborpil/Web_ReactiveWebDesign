@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <!--기본 링크 거는 방식-->
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <!--미디어의 크기에 따라 따로 스타일시트를 거는 방법-->
+    <link rel="stylesheet" media="all and (min-width: 320px)" href="style320px.css" />
+    <!--임포트 방식 : -->
+    <style>
+        @import url("style320px.css") all and (min-width: 320px);
+    </style>
+    <!--문서 내에서 적용하는 방식 : 피하는게 좋다-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            height: 500px;
+            margin: 0 auto;
+            border: 4px solid #000;
+        }
+        @media all and (min-width: 320px){ /*모든 기기에서 최소 너비가 320일때*/
+            #wrap{
+                width: 30%;
+                background: #00d2a5;
+            }
+        }
+        @media all and (min-width: 720px){
+            #wrap{
+                width: 60%;
+                background: #40b0f9;
+            }
+        }
+        @media all and (min-width: 1024px){
+            #wrap{
+                width: 90%;
+                background: #f45750;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+</html>

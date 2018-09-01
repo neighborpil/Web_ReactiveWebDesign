@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap {
+            position: relative;
+            padding-bottom: 56.25%; /*9 / 16*/
+            height: 0;
+            overflow: hidden;
+        }
+
+        #wrap div {
+            width: 30%; /* 안먹힌다 */
+        }
+        video, iframe {
+            width: 100%;
+            max-width: 100%;
+        }
+    </style>
+
+    <script type="text/javascript" src="source/jquery.min.js"></script>
+    <script type="text/javascript" src="source/jquery.fitvids.js"></script>
+    <!--<script>
+        $("#wrap").fitVids();
+    </script>-->
+</head>
+<body>
+    <div id="wrap">
+        <div>
+            <iframe src="https://www.youtube.com/embed/nDFrSyh3Ylo" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <script>
+        $("#wrap").fitVids();
+    </script>
+</body>
+</html>

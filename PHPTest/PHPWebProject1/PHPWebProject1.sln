@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "PHPWebProject1", "..\..\..\..\..\Codes\GitRepository\Web_ReactiveWebDesign\PHPTest\PHPWebProject1\PHPWebProject1\PHPWebProject1.phpproj", "{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}"
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "CH01_2", "PHPWebProject1\CH01_2.phpproj", "{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}"
+EndProject
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "CH01_3", "CH01_3\CH01_3.phpproj", "{F1C09B7D-CE48-494A-B454-F043F495973E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C09B7D-CE48-494A-B454-F043F495973E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C09B7D-CE48-494A-B454-F043F495973E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
