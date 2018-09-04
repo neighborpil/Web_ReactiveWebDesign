@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <RuntimeVersion>7.1</RuntimeVersion>
-    <SpecificPageValue>HTMLPage1.html</SpecificPageValue>
+    <SpecificPageValue>ex_02.html</SpecificPageValue>
     <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="ex_01.html" />
+    <Content Include="ex_02.html" />
     <Content Include="HTMLPage1.html" />
   </ItemGroup>
 </Project>
