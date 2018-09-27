@@ -1,14 +1,14 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Name>CH01_3</Name>
-    <ProjectGuid>{f1c09b7d-ce48-494a-b454-f043f495973e}</ProjectGuid>
+    <Name>CH04</Name>
+    <ProjectGuid>{1b543f32-ed7c-41b4-8bd9-69cfb9c69eaf}</ProjectGuid>
     <RootNamespace>
     </RootNamespace>
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <RuntimeVersion>7.1</RuntimeVersion>
-    <SpecificPageValue>ex_01.html</SpecificPageValue>
+    <SpecificPageValue>ex06.html</SpecificPageValue>
     <StartAction>SpecificPage</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -18,9 +18,12 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="ex_01.html" />
-    <Content Include="ex_02.html" />
-    <Content Include="HTMLPage1.html" />
-    <Content Include="ViewPort.html" />
+    <Compile Include="index.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ex03.html" />
+    <Content Include="ex04.html" />
+    <Content Include="ex05.html" />
+    <Content Include="ex06.html" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,8 @@ Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "CH01_2", "PHPWebProject1\CH
 EndProject
 Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "CH01_3", "CH01_3\CH01_3.phpproj", "{F1C09B7D-CE48-494A-B454-F043F495973E}"
 EndProject
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "CH04", "CH04\CH04.phpproj", "{1B543F32-ED7C-41B4-8BD9-69CFB9C69EAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,8 @@ Global
 		{5E4D73A7-0C6C-4A4A-9F01-0B3080ED7FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1C09B7D-CE48-494A-B454-F043F495973E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F1C09B7D-CE48-494A-B454-F043F495973E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B543F32-ED7C-41B4-8BD9-69CFB9C69EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B543F32-ED7C-41B4-8BD9-69CFB9C69EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
