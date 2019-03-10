@@ -48,6 +48,35 @@
             padding: 0.938rem 0; /* rem을 아래부분으로 하여 하위 브라우저에서 호환 대비책 사용, fallback기법이라 함 */
         }
 
+        /* 헤더 영역 CSS */
+        .header{
+            display: flex;
+            order: 2;
+            flex-direction: column; /* 헤더영역의 로고와 메뉴 영역이 세로로 배치되므로 column */
+            position: relative; /* 모바일 환경에서는 헤더의 구조에서 토글 버튼이 오른쪽 상단에 배치, 토글 버튼이 놓일 기준 설정위해 relative */
+            width: 100%;
+        }
+
+        .logo{
+            order: 1; /* 모바일 환경에서 헤더 영역의 구조를 보면 로고 영역이 가장 상단에 배치 */
+            width: 100%;
+            padding: 30px 0; /* 위 아래 패팅 30px */
+            padding: 1.875rem 0;
+            font-size: 1.188em; /* 로고 영역의 글자 크기와 글자 행간은 모든 환경에서 동일 */
+            font-size: 1.188rem;
+            line-height: 21px;
+            line-height: 1.313rem;
+            text-align: center;
+            text-transform: uppercase;
+            background: #2ecc71;
+            text-shadow: 0px 1px 1px #25ab5e;
+        }
+
+        .nav{
+            order: 2; /* 모바일 환경에서 메뉴 영역이 2번째로 배치 */
+            width: 100%;
+        }
+
         /* 태블릿용 CSS */
         @media all and (min-width: 768px){
             /* 기본 CSS */
@@ -62,6 +91,29 @@
             #wrap{
                 position: relative;
                 width: 90%;
+            }
+
+            /* 인포메이션 영역 */
+            .info_section{
+                order: 0; /* pc에서의 인포메이션은 우측 상단에 배치, 박스의 배치 순서를 결정하는 order를 0으로 초기화 */
+                position: absolute;
+                top: 30px;
+                top: 1.875rem;
+                right: 30px;
+                right: 1.875rem;
+                z-index: 30;
+                width: auto; /* pc환경에서는 너비값이 필요 없으므로 auo로 설정 */
+                border-bottom: 0; /* pc환경에서 아래쪽 선 값도 필요 없으므로 0 */
+            }
+
+            .info_list li{
+                width: auto; /* pc환경에서는 모바일용 너비값이 필요 없으므로 auto */
+                margin-left: 15px;
+                margin-left: 0.625rem;
+            }
+
+            .info_list li a{
+                padding: 0;
             }
         }
 
