@@ -12,7 +12,7 @@
     <link rel="apple-touch-precomposed" href="images/favicon/flat-design-touch.png">
     <script src="js/jquery.min.js"></script>
     <style>
-        /* 모바일용 CSS - 320px를 기준으로 잡으나 그 이하 기기도 있을 수있으므로, 별도의 미디어 쿼리는 작성하지 않는다. 공통으로 작성 */
+        /* ---- 모바일용 CSS - 320px를 기준으로 잡으나 그 이하 기기도 있을 수있으므로, 별도의 미디어 쿼리는 작성하지 않는다. 공통으로 작성 ---- */
         #wrap{
             display: flex; /* 모든 환경에서 플렉서블 박스로 작동하게 함 */
             flex-flow: column nowrap; /* 모바일 환경에서 메인 페이지의 구조는 세로로 한줄씩 배치되므로 박스 배치 방향과 여러줄 배치를 위하여 column nowrap으로 설정*/
@@ -210,7 +210,59 @@
             box-shadow: 0px 1px 1px #c43434;
         }
 
-        /* 태블릿용 CSS */
+        .gallery_list li:nth-child(2){
+            margin-top: 30px;
+            margin-top: 1.875rem; /* 갤러리 영역의 목록 사이에 간격이 있다. 두번째를 선택하여 마진top 값을 설정 */
+        }
+
+        .gallery_list li figcaption{
+            margin-top: 20px;
+            margin-top: 1.250rem;
+            font-size: 1.188em;
+            font-size: 1.188rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* 인기 검색어 영역 CSS */
+        .rankup_section{
+            order: 7;
+            padding: 40px 12.5%; /* 위아래 패딩은 40px, 좌우 패딩은 12.5% */
+            padding: 2.500rem 12.5%;
+            /* 40px / 320 px */
+            background: #219af7;
+            text-shadow: 0px 1px 1px #1974ba;
+        }
+
+        .rankup_list{
+            display: flex;
+            flex-wrap: wrap; /* flex-wrap: 박스를 여러줄로 배치하기 위한 속성, wrap: 여러줄로 배치 */
+            justify-content: space-between; /* space-between: 목록 사이에 간격을 두고 배치 */
+        }
+
+        .rankup_list li{
+            width: 47.91666666666666666667%;
+            /* 115px / 240px */
+            margin-top: 15px;
+            margin-top: 0.938rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .rankup_list li:first-child, .rankup_list li:nth-child(2){
+            margin-top: 0; /* li의 첫번째와 두번재목록의 위쪽 마진 필요 없으므로 0 */
+        }
+
+        .rankup_list li a{
+            display: block;
+            padding: 10px 0;
+            padding: 0.625rem 0;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+
+        /* ---- 태블릿용 CSS ---- */
         @media all and (min-width: 768px){
             /* 기본 CSS */
             #wrap{
@@ -290,6 +342,31 @@
                 padding-left: 5.20833333333333333%;
                 padding-right: 5.20833333333333333%;
                 /* 40px / 768px */
+            }
+
+            /* 갤러리 영역 */
+            .gallery_section{
+                order: 8;
+                width: 71.35416666666666667%;
+                /* 548px / 768px */
+                padding-left: 5.20833333333333333%;
+                padding-right: 5.20833333333333333%;
+                /* 40px / 768px */
+            }
+
+            .gallery_list{
+                display: flex;
+            }
+
+            .gallery_list li{
+                width: 47.008547008547008547008547%;
+                /* 220px / 468px */
+            }
+
+            .gallery_list li:nth-child(2){
+                margin-left: 5.982905982905982905982905982906%;
+                /* 28px / 468px */
+                margin-top: 0;
             }
         }
 
@@ -392,6 +469,27 @@
                 /* 288px / 960px */
                 padding-left: 0; /* PC 환경에서는 패딩값이 필요 없으므로 태블릿용에서 적용한 값을 초기화 */
                 padding-right: 0;
+            }
+
+            /*  갤러리 영역 CSS */
+            .gallery_section{
+                order: 3;
+                width: 27.0833333333333%;
+                /* 260px / 960px */
+            }
+
+            .gallery_list{
+                display: block; /* PC환경에서는 더이상 플렉스로 작동하지 않아도 되므로 block으로 설정 */
+            }
+
+            .gallery_list li{
+                width: auto; /* li는 더이상 너비 값이 필요치 않으므로 auto */
+            }
+
+            .gallery_list li:nth-child(2){ /* PC 환경에서는 갤러리 영역이 다시 세로로 배치 */
+                margin-top: 30px; /* 두번째 목록을 선택하여 위쪽 마진값 설정 */
+                margin-top: 1.875rem;
+                margin-left: 0; /* 태블릿 영역에서 설정한 left-margin 값을 다시 0으로 설정 */
             }
         }
 
