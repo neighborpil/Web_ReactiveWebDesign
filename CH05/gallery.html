@@ -6,19 +6,129 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <title>FLAT DESIGN - 갤러리</title>
-    <link rel="stylesheet" type="text/css" href="" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="" />
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <link rel="apple-touch-precomposed" href="images/favicon/flat-design-touch.png">
     <script src="js/jquery.min.js"></script>
     <style>
+        /* 모바일용 CSS - 320px를 기준으로 잡으나 그 이하 기기도 있을 수있으므로, 별도의 미디어 쿼리는 작성하지 않는다. 공통으로 작성 */
+        #wrap {
+            display: flex;
+            /* 모든 환경에서 플렉서블 박스로 작동하게 함 */
+            flex-flow: column nowrap;
+            /* 모바일 환경에서 메인 페이지의 구조는 세로로 한줄씩 배치되므로 박스 배치 방향과 여러줄 배치를 위하여 column nowrap으로 설정*/
+            width: 80%;
+            /* 모바일 및 태블릿 환경에서는 너비값을 80%로 설정 */
+            margin: 0 auto;
+            /* 모든 환경에서 박스를 중앙으로 배치하기 위하여 margin 0 auto 및↓ */
+            max-width: 1200px;
+            /* max-width를 1200px로 설정 */
+        }
 
+        #wrap section {
+            box-sizing: border-box;
+            /* box-sizing: 박스의 크기를 결정하는 방법, border-box: 선 값과 패딩값을 너빗값에 포함*/
+        }
+
+        /* 태블릿용 CSS */
+        @media all and (min-width: 768px) {}
+
+        /* PC용 CSS */
+        @media all and (min-width: 960px) {
+
+            /* 기본 CSS */
+            #wrap {
+                position: relative;
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div id="wrap">
-
+        <!-- 인포메이션 영역 -->
+        <section class="info_section">
+            <ul class="info_list">
+                <li><a href="index.html"><img src="images/s_images/info_icon_01.png" alt=""></a></li>
+                <li><a href=""><img src="images/s_images/info_icon_02.png" alt=""></a></li>
+                <li><a href=""><img src="images/s_images/info_icon_03.png" alt=""></a></li>
+                <li><a href=""><img src="images/s_images/info_icon_04.png" alt=""></a></li>
+            </ul>
+        </section>
+        <!-- 헤더 영역 -->
+        <header class="header">
+            <h1 class="log">
+                <a href="index.html">flat<br>design</a>
+            </h1>
+            <nav class="nav">
+                <ul class="gnb">
+                    <li><a href="index.html">홈</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                    <li><a href="introduce.html">플랫 디자인이란?</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                    <li><a href="gallery.html">갤러리</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                    <li><a href="board.html">문의 사항</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="sub_header_section">
+            <h2>갤러리</h2>
+            <ul class="breadcrum_list">
+                <li><a href="index.html">홈 /</a></li>
+                <li><a href="gallery.html">갤러리</a></li>
+            </ul>
+        </section>
+        <section class="content_section">
+            <div class="content_row_1">
+                <ul class="gallery_list">
+                    <li><a href=""><img src="images/p_images/sub_gallery_01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_03.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_04.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_05.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_06.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_07.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_08.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_09.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_10.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_11.jpg" alt=""></a></li>
+                    <li><a href=""><img src="images/p_images/sub_gallery_12.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="content_row_2">
+                <div class="search_box">
+                    <form action="#" method="get">
+                        <input type="search" name="gallery_search_window" class="search_window" placeholder="검색어">
+                        <div class="search_select_box">
+                            <span>검색 대상</span>
+                            <ul class="search_select_list">
+                                <li>제목</li>
+                                <li>내용</li>
+                                <li>제목+내용</li>
+                                <li>댓글</li>
+                                <li>이름</li>
+                                <li>닉네임</li>
+                                <li>아이디</li>
+                                <li>태그</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="write_box">
+                    <a href="#">글 쓰기</a>
+                </div>
+            </div>
+            <div class="content_row_3">
+                <span class="list_prev_btn">갤러리 이전 버튼</span>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <span class="list_next_btn">갤러리 다음 버튼</span>
+            </div>
+        </section>
+        <footer class="footer">
+            <p>copyright&copy;2014.flat design blog all right reserved.</p>
+        </footer>
 
     </div>
 </body>

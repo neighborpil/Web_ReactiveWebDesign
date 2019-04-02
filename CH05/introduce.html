@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>FLAT DESIGN - 플랫 디자인이란?</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="" />
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-precomposed" href="images/favicon/flat-design-touch.png">
+    <script src="js/jquery.min.js"></script>
+    <style>
+        /* ---- 모바일용 CSS - 320px를 기준으로 잡으나 그 이하 기기도 있을 수있으므로, 별도의 미디어 쿼리는 작성하지 않는다. 공통으로 작성 ---- */
+        #wrap {
+            display: flex;
+            /* 모든 환경에서 플렉서블 박스로 작동하게 함 */
+            flex-flow: column nowrap;
+            /* 모바일 환경에서 메인 페이지의 구조는 세로로 한줄씩 배치되므로 박스 배치 방향과 여러줄 배치를 위하여 column nowrap으로 설정*/
+            width: 80%;
+            /* 모바일 및 태블릿 환경에서는 너비값을 80%로 설정 */
+            margin: 0 auto;
+            /* 모든 환경에서 박스를 중앙으로 배치하기 위하여 margin 0 auto 및↓ */
+            max-width: 1200px;
+            /* max-width를 1200px로 설정 */
+        }
+
+        #wrap section {
+            box-sizing: border-box;
+            /* box-sizing: 박스의 크기를 결정하는 방법, border-box: 선 값과 패딩값을 너빗값에 포함*/
+        }
+
+        /* 인포메이션 영역 CSS */
+        .info_section {
+            order: 1;
+            /* 모바일 환경에서는 인포영역이 맨위에 배치된다. 따라서 박스 순서 변경 order값을 1로 설정 */
+            width: 100%;
+            background: #2ecc71;
+            border-bottom: 1px solid #39d67c;
+        }
+
+        .info_list {
+            display: flex;
+            /* 목록은 플렉서블 박스로 설정 */
+        }
+
+        .info_list li {
+            width: 25%;
+            /* li태그의 너비값을 25%로 */
+            text-align: center;
+        }
+
+        .info_list li a {
+            display: block;
+            padding: 15px 0;
+            /* padding 2개입력 이유: rem은 절대 크기 표현가능하나 하위 브라우저 호환 X, 태그는 제일 아래부분이 실행되므로↓ */
+            padding: 0.938rem 0;
+            /* rem을 아래부분으로 하여 하위 브라우저에서 호환 대비책 사용, fallback기법이라 함 */
+        }
+
+        /* 헤더 영역 CSS */
+        .header {
+            display: flex;
+            order: 2;
+            flex-direction: column;
+            /* 헤더영역의 로고와 메뉴 영역이 세로로 배치되므로 column */
+            position: relative;
+            /* 모바일 환경에서는 헤더의 구조에서 토글 버튼이 오른쪽 상단에 배치, 토글 버튼이 놓일 기준 설정위해 relative */
+            width: 100%;
+        }
+
+        .logo {
+            order: 1;
+            /* 모바일 환경에서 헤더 영역의 구조를 보면 로고 영역이 가장 상단에 배치 */
+            width: 100%;
+            padding: 30px 0;
+            /* 위 아래 패팅 30px */
+            padding: 1.875rem 0;
+            font-size: 1.188em;
+            /* 로고 영역의 글자 크기와 글자 행간은 모든 환경에서 동일 */
+            font-size: 1.188rem;
+            line-height: 21px;
+            line-height: 1.313rem;
+            text-align: center;
+            text-transform: uppercase;
+            background: #2ecc71;
+            text-shadow: 0px 1px 1px #25ab5e;
+        }
+
+        .nav {
+            order: 2;
+            /* 모바일 환경에서 메뉴 영역이 2번째로 배치 */
+            width: 100%;
+        }
+
+        .gnb li {
+            display: flex;
+            background: #2c3e50;
+        }
+
+        .gnb li a {
+            width: 80%;
+            padding: 20px 0;
+            padding: 1.250rem 0;
+            font-size: 0.938em;
+            /* 모든 환경에서 동일하게 적용 될 폰트 크기 */
+            font-size: 0.938rem;
+            text-indent: 20px;
+            text-indent: 1.250rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .gnb li span {
+            /* span: 하위 메뉴를 보이고 감추는 역할 */
+            width: 20%;
+            text-indent: -9999px;
+            /* text-indent: 글자를 들여쓰기 */
+            background: url(images/s_images/sub_menu_toggle_btn.png) center center no-repeat;
+            cursor: pointer;
+        }
+
+        .menu_toggle_btn {
+            /* 모바일 환경에서 전체 메뉴를 보이고 감추는 역할 */
+            display: block;
+            width: 30px;
+            width: 1.875rem;
+            height: 30px;
+            height: 1.875rem;
+            position: absolute;
+            /* 절대 위치, 상단 오른쪽 배치 */
+            top: 10px;
+            top: 0.625rem;
+            right: 10px;
+            right: 0.625rem;
+            text-indent: -9999px;
+            background: url(images/s_images/menu_toggle_btn.png) no-repeat;
+            cursor: pointer;
+        }
+
+        /* 서브 헤더 영역 CSS */
+        .sub_header_section{
+            order: 3;
+            padding: 48px 0;
+            padding: 3.000rem 0;
+            text-align: center;
+            background: #219af7;
+        }
+        
+        .sub_header_section h2{
+            margin-bottom: 12px;
+            margin-bottom: 0.750rem;
+            font-size: 1.313em;
+            font-size: 1.313rem;
+            color: #fff;
+        }
+
+        .breadcrum_list li{
+            display: inline;
+            font-size: 0.813em;
+            font-size: 0.813rem;
+            font-weight: bold;
+        }
+
+        /* 콘텐츠 영역 CSS */
+        .content_section{
+            order: 4;
+            padding: 20px;
+            padding: 1.250rem;
+            background: #fff;
+        }
+
+        .content_section > div{ /* >: 자식 선택자를 뜻한다. 만약 >이 없다면 자손 div가 모두 선택된다 */
+            margin-top: 60px;
+            margin-top: 3.750rem;
+        }
+
+        .content_section > div:first-child{
+            margin-top: 0;
+        }
+
+        .content_row_1{
+            text-align: center;
+        }
+
+        .content_row_1 img{
+            max-width: 100%;
+        }
+
+        .content_row_1 h3{
+            margin: 26px 0 14px 0;
+            margin: 1.625rem 0 0.875rem 0;
+            font-size: 1.626em;
+            font-size: 1.626rem;
+            color: #333;
+        }
+
+        .content_row_1 p {
+            font-size: 0.938em;
+            font-size: 0.938rem;
+            line-height: 26px;
+            line-height: 1.625rem;
+            color: #444;
+        }
+
+        .content_row_2 > article{
+            margin-top: 40px;
+            margin-top: 2.500rem;
+            text-align: center;
+        }
+
+        .content_row_2 > article:first-child{
+            margin-top: 0;
+        }
+
+        .content_row_2 img{
+            max-width: 100%;
+        }
+
+        .content_row_2 h4{
+            margin: 26px 0 14px 0;
+            margin: 1.625rem 0 0.875rem 0;
+            font-size: 1.188em;
+            font-size: 1.188rem;
+            color: #333;
+        }
+
+        .content_row_2 p{
+            font-size: 0.813em;
+            font-size: 0.813rem;
+            line-height: 21px;
+            line-height: 1.313rem;
+            color: #444;
+        }
+
+        /* 푸터 영역 CSS */
+        .footer {
+            order: 5;
+            width: 100%;
+            background: #474747;
+        }
+
+        .footer p {
+            padding: 20px;
+            padding: 1.250rem;
+            font-size: 0.813em;
+            font-size: 0.813rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0px 1px 1px #191919;
+        }
+
+        /* ---- 모바일용 CSS Finish ---- */
+
+        /* 태블릿용 CSS */
+        @media all and (min-width: 768px) {
+
+            /* 기본 CSS */
+            #wrap {
+                flex-flow: row wrap;
+                /* 태블릿 환경과 PC환경에서는 가로로 여러줄 배치, flex-flow: 박스의 배치 방향과 여러줄 배치를 한번에 설정, ↓ */
+            }
+
+            /* row wrap: 가로로 여러줄 배치 */
+
+            /* 헤더 영역 CSS */
+            .header {
+                flex-direction: row;
+                /* 태블리 환경에서는 자식들이 가로로 배치 */
+            }
+
+            .logo {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                width: 15.625%;
+                /* 태블릿 환경에서 로고의 너비값은 120px. 가변 그리드 공식 이용하여 얻은 값을 width에 적용 */
+                /* 120px / 769px */
+                padding: 0;
+            }
+
+            .logo a {
+                display: block;
+                padding: 50px 0;
+                padding: 3.125rem 0;
+            }
+
+            .nav {
+                /* 네비게이션: 메뉴 영역이 놓일 기준을 설정하기 위한 것, 태블릿 환경에서 오른쪽 상단에 배치 */
+                position: relative;
+                min-height: 80px;
+                min-height: 5.000rem;
+                background: #2ecc71;
+            }
+
+            .gnb {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                z-index: 20;
+                width: 40.10416666666667%;
+                /* 308px / 768px */
+            }
+
+            .menu_toggle_btn {
+                top: 50%;
+                right: 30px;
+                right: 1.875rem;
+                z-index: 20;
+                margin-top: 15px;
+                margin-top: -0.938rem;
+            }
+
+            /* 콘텐츠 영역 CSS */
+            .content_section{
+                padding: 40px;
+                padding: 2.500rem;
+            }
+
+            /* 푸터 영역 CSS */
+            .footer p {
+                padding: 40px 0;
+                padding: 2.500rem 0;
+            }
+        }
+
+        /* ---- 태블릿용 CSS Finish ---- */
+
+        /* PC용 CSS */
+        @media all and (min-width: 960px) {
+
+            /* 기본 CSS */
+            #wrap {
+                position: relative;
+                width: 90%;
+            }
+
+            /* 인포메이션 영역 */
+            .info_section {
+                order: 0;
+                /* pc에서의 인포메이션은 우측 상단에 배치, 박스의 배치 순서를 결정하는 order를 0으로 초기화 */
+                position: absolute;
+                top: 30px;
+                top: 1.875rem;
+                right: 30px;
+                right: 1.875rem;
+                z-index: 30;
+                width: auto;
+                /* pc환경에서는 너비값이 필요 없으므로 auo로 설정 */
+                border-bottom: 0;
+                /* pc환경에서 아래쪽 선 값도 필요 없으므로 0 */
+            }
+
+            .info_list li {
+                width: auto;
+                /* pc환경에서는 모바일용 너비값이 필요 없으므로 auto */
+                margin-left: 15px;
+                margin-left: 0.625rem;
+            }
+
+            .info_list li a {
+                padding: 0;
+            }
+
+            /* 헤더 영역 CSS */
+            .header {
+                order: 1;
+                justify-content: flex-end;
+                /* PC환경에서는 로고 영역이 상단에 배치, 메뉴 영역이 기존의 로고 영역의 위치에 배치되어
+                                              로고 영역에 가려질 수 있으니, 주축 방향으로 박스를 다양하게 배치하는 justify-content
+                                              속성의 값을 주축 방향 끝점에 배치하는 속성값인 flex-end로 설정 */
+                position: static;
+                /* 헤더 영역은 더 이상 상대적인 위치로 작동 할 필요가 없으므로 기본값인 static으로 설정  */
+            }
+
+            .logo {
+                width: 12.5%;
+                /* 120px / 960px */
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+                /* 메뉴 영역에 배치되어 있는 메뉴 목록 영역을 세로 중앙으로 정렬시켜야 하므로, 교차축 방향으로 
+                                       박스를 다앙햐게 배치하는 align-items 속성의 값을 중앙으로 배치하는 값인 center로 설정 */
+                position: static;
+                width: 87.5%;
+                /* 840px / 960px */
+            }
+
+            .gnb {
+                display: flex !important;
+                /* !important: 속성을 위치 상관 없이 강제로 적용 */
+                flex-direction: row;
+                position: static;
+                width: 100%;
+                text-shadow: 0px 1px 1px #25ab5e;
+            }
+
+            .gnb li {
+                display: block;
+                margin-left: 5.2083333333333%;
+                /* PC용 구조에서 메뉴마다 왼쪽에 50px 크기의 간격이 있으므로 가변 그리드 공식 값 적용 */
+                /* 50px / 840px */
+                background: none;
+            }
+
+            .gnb li a {
+                width: auto;
+                padding: 0;
+                text-indent: 0;
+            }
+
+            .gnb li span {
+                display: none;
+                /* 메뉴를 감추고 보이는 토클 버튼은 PC 환경에서는 필요강 없으므로 none값 적용 */
+            }
+
+            .menu_toggle_btn {
+                display: none;
+                /* 메뉴를 감추고 보이는 토클 버튼은 PC 환경에서는 필요강 없으므로 none값 적용 */
+            }
+
+            /* 서브 헤드 영역 CSS */
+            .sub_header_section{
+                order: 2;
+            }
+
+            /* 콘텐츠 영역 CSS */
+            .content_section{
+                order: 3;
+                padding: 60px;
+                padding: 3.750rem;
+            }
+
+            /* 푸터 영역 CSS */
+            .footer {
+                order: 4;
+            }
+
+            .footer p {
+                padding-left: 3.125%;
+                /* 30px / 960px */
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- 인포메이션 영역 -->
+        <section class="info_section">
+            <ul class="info_list">
+                <li><a href="index.html"><img src="images/s_images/info_icon_01.png" alt=""></a></li>
+                <li><a href=""><img src="images/s_images/info_icon_02.png" alt=""></a></li>
+                <li><a href=""><img src="images/s_images/info_icon_03.png" alt=""></a></li>
+                <li><a href=""><img src="images/s_images/info_icon_04.png" alt=""></a></li>
+            </ul>
+        </section>
+        <!-- 헤더 영역 -->
+        <header class="header">
+            <h1 class="log">
+                <a href="index.html">flat<br>design</a>
+            </h1>
+            <nav class="nav">
+                <ul class="gnb">
+                    <li><a href="index.html">홈</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                    <li><a href="introduce.html">플랫 디자인이란?</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                    <li><a href="gallery.html">갤러리</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                    <li><a href="board.html">문의 사항</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="sub_header_section">
+            <h2>플랫 디자인이란?</h2>
+            <ul class="breadcrum_list">
+                <li><a href="index.html">홈 /</a></li>
+                <li><a href="introduce.html">플랫 디자인이란?</a></li>
+            </ul>
+        </section>
+        <section class="content_section">
+            <div class="content_row_1">
+                <img src="images/s_images/introduce_01.png" alt="">
+                <h3>플랫 디자인</h3>
+                <p>플랫 디자인은 평평함을 추구합니다. 플랫 디자인의 시초는 정확히 언제부터인지 알 수 없지만, 오래 전부터 전해져온 디자인 흐름인것은 분명합니다. 물론 플랫 디자인을 대세의 흐름에
+                    서게 한 장본인은 있습니다. 바로 마이크로소프트의 윈도우8 UI입니다.마이크로소프트는 윈도우8에서 파격적인 플랫 UI를 발표하면서 플랫 디자인을 대중적인 디자인 흐름으로 만든
+                    장본인입니다. 이에 따라 애플의 ios7에서도 플랫 디자인을 채택하면서 플랫 디자인의 자리가 굳건해지고 있습니다.</p>
+            </div>
+            <div class="content_row_2">
+                <article>
+                    <img src="images/s_images/introduce_02.png" alt="">
+                    <h4>텍스트를 이용하는 방법</h4>
+                    <p>텍스트를 이용하여 플랫 디자인을 하는 방법을 소개합니다. 텍스트를 사용하여 플랫 디자인을 할 때는 우선적으로 폰트의 선택이 중요합니다. 디자인에 따라 폰트의 선과 두께를
+                        고려하여 폰트를 선택해야 합니다. 적절한 폰트 선택과 텍스트의 크기 조절로만으로도 효과적으로 메세지를 전달 할 수 있으며, 플랫 디자인을 돋보이게 할 수 있습니다.</p>
+                </article>
+                <article>
+                    <img src="images/s_images/introduce_03.png" alt="">
+                    <h4>그림을 이용하는 방법</h4>
+                    <p>그림을 이용하여 플랫 디자인을 하는 방법을 소개합니다. 그림을 사용하여 플랫 디자인을 할 때는 배경을 이미지로 설정 하는 것이 좋습니다. 전체 배경으로 설정된 이미지는 플랫
+                        디자인을 더욱 돋보이게 해주며 프로모션, 원 페이지 사이트등과 같은 곳에서 사용하면 극대화 된 효과를 볼 수 있습니다.</p>
+                </article>
+                <article>
+                    <img src="images/s_images/introduce_04.png" alt="">
+                    <h4>아이콘을 이용하는 방법</h4>
+                    <p>아이콘을 이용하여 플랫 디자인을 하는 방법을 소개합니다. 아이콘을 사용하여 플랫 디자인을 할 때는 아이콘의 선정이 중요합니다. 디자인에 따라 굵은 선이 필요한 아이콘이
+                        있을수도 있고, 얇은 선이 필요한 아이콘이 필요 할 수 도 있습니다. 이를 잘 선택하는 것이 아이콘을 이용하여 플랫 디자인을 하는 최선의 방법입니다.</p>
+                </article>
+            </div>
+            <div class="content_row_3">
+                <h4>플랫 디자인의 미래</h4>
+                <div class="para">
+                    <p>플랫 디자인의 미래는 누구도 알 수 없지만, 감히 말하자면 플랫 디자인은 다른 디자인 흐름보다 오래 갈 것이라는 겁니다. 이제는 스큐어 모피즘 디자인 개념을 벗어나 확장성이
+                        뛰어나고 심플하고 직관적인 플랫 디자인을 사용자 또한 선호 할 것입니다.</p>
+                    <p>Flat design of the future is unknown, but no one dare to say Flat design that will take longer
+                        than other design flow. Now that's out of the concept of cure fur minimalist design scalable
+                        Flat design, simple and intuitive user you will also like.</p>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <p>copyright&copy;2014.flat design blog all right reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
