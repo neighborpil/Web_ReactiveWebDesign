@@ -16,7 +16,7 @@ footer, header, hgroup, menu, nav,section, summary, time, mark, audio, video{
 
 body{ /* body 태그에 폰트 속성 및 배경속성, 글자 행간 속성 설정*/
     font-family: NanumGothic, 나눔고딕, 'Nanum Gothic', '맑은 고딕', HelveticaNeue, DroidSans, sans-serif, Helvetica;
-    background: url(images/s_images/body_bg.png);
+    background: url(../images/s_images/body_bg.png);
     line-height: 1;
 }
 
