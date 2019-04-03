@@ -234,6 +234,30 @@
             color: #444;
         }
 
+        .content_row_3 h4{
+            margin-bottom: 20px;
+            margin-bottom: 1.250rem;
+            padding-bottom: 8px;
+            padding-bottom: 0.500rem;
+            font-size: 1.188em;
+            font-size: 1.188rem;
+            border-bottom: 3px solid #2ecc71;
+            color: #333;
+        }
+
+        .para p:first-child{
+            margin-bottom: 30px;
+            margin-bottom: 1.875rem;
+        }
+
+        .para p{
+            font-size: 0.813em;
+            font-size: 0.813rem;
+            line-height: 21px;
+            line-height: 1.313rem;
+            color: #444;
+        }
+
         /* 푸터 영역 CSS */
         .footer {
             order: 5;
@@ -257,14 +281,6 @@
 
         /* 태블릿용 CSS */
         @media all and (min-width: 768px) {
-
-            /* 기본 CSS */
-            #wrap {
-                flex-flow: row wrap;
-                /* 태블릿 환경과 PC환경에서는 가로로 여러줄 배치, flex-flow: 박스의 배치 방향과 여러줄 배치를 한번에 설정, ↓ */
-            }
-
-            /* row wrap: 가로로 여러줄 배치 */
 
             /* 헤더 영역 CSS */
             .header {
@@ -319,6 +335,11 @@
             .content_section{
                 padding: 40px;
                 padding: 2.500rem;
+            }
+
+            .content_section > div{
+                margin-top: 120px;
+                margin-top: 7.500rem;
             }
 
             /* 푸터 영역 CSS */
@@ -437,6 +458,28 @@
                 padding: 3.750rem;
             }
 
+            .content_row_2{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .content_row_2 article{
+                width: 30%;
+                /* 252px / 840px */
+                margin: 0;
+            }
+
+            .para{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .para p{
+                width: 47.61904761904762%;
+                /* 400px / 840px */
+                margin: 0;
+            }
+
             /* 푸터 영역 CSS */
             .footer {
                 order: 4;
@@ -464,7 +507,7 @@
         </section>
         <!-- 헤더 영역 -->
         <header class="header">
-            <h1 class="log">
+            <h1 class="logo">
                 <a href="index.html">flat<br>design</a>
             </h1>
             <nav class="nav">
@@ -475,6 +518,7 @@
                     <li><a href="board.html">문의 사항</a><span class="sub_menu_toggle_btn">하위 메뉴 버튼 토글</span></li>
                 </ul>
             </nav>
+            <span class="menu_toggle_btn">전체 메뉴 토글 버튼</span>
         </header>
         <section class="sub_header_section">
             <h2>플랫 디자인이란?</h2>
